@@ -58,19 +58,14 @@ public class Login extends AppCompatActivity {
                     return;
                 }
 
-                String user_current = FirebaseAuth.getInstance().getCurrentUser().getEmail();
-
-                fAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
-                            Log.d("loi","van cu la ok "+user_current);
-
-                            Toast.makeText(Login.this,"Login thành công ",Toast.LENGTH_SHORT).show();
+                            Toast.makeText(Login.this,"Login thành công",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
 
                         }else{
-                            Log.d("loi","loi cmnr");
                             Toast.makeText(Login.this,"Lỗi"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
                         }
                     }
