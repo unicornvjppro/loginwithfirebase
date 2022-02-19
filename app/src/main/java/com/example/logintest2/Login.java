@@ -7,6 +7,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -22,6 +23,7 @@ public class Login extends AppCompatActivity {
     EditText mEmail,mPassword;
     TextView mLabel,msignup;
     Button msignin;
+    private ProgressBar pgbar;
 
     FirebaseAuth fAuth;
 
@@ -36,6 +38,7 @@ public class Login extends AppCompatActivity {
         msignup=findViewById(R.id.txtpro);
         msignin=findViewById(R.id.button);
         mLabel=findViewById(R.id.textView);
+        pgbar=findViewById(R.id.pgb1);
 
         msignin.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -58,7 +61,8 @@ public class Login extends AppCompatActivity {
                     return;
                 }
 
-                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                pgbar.setVisibility(View.VISIBLE);
+                fAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
@@ -76,6 +80,7 @@ public class Login extends AppCompatActivity {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),register_class.class));
+                pgbar.setVisibility(View.INVISIBLE);
             }
         });
 

@@ -73,6 +73,7 @@ public class register_class extends AppCompatActivity {
                         if(task.isSuccessful()){
                             Toast.makeText(register_class.this,"User create",Toast.LENGTH_SHORT).show();
                             startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                            pgbar.setVisibility(View.INVISIBLE);
                         }else{
                             Toast.makeText(register_class.this,"error"+task.getException().getMessage(), Toast.LENGTH_SHORT).show();
 
