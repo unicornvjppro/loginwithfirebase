@@ -19,9 +19,9 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
 public class Login extends AppCompatActivity {
-    EditText mEmail,mPassword;
-    TextView mLabel,msignup;
-    Button msignin;
+    private EditText mEmail,mPassword;
+    private TextView mLabel,msignup;
+    private Button msignin;
 
     FirebaseAuth fAuth;
 
@@ -40,25 +40,25 @@ public class Login extends AppCompatActivity {
         msignin.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String email= mEmail.getText().toString().trim();
-                String password=mPassword.getText().toString().trim();
-                if(TextUtils.isEmpty(email)){
+                String email1= mEmail.getText().toString().trim();
+                String password1=mPassword.getText().toString().trim();
+                if(TextUtils.isEmpty(email1)){
                     mEmail.setError("Vui lòng điền Email");
                     Log.d("loi","loi");
                     return;
                 }
-                if(TextUtils.isEmpty(password)){
+                if(TextUtils.isEmpty(password1)){
                     mPassword.setError("Vui lòng điền mật khẩu");
                     Log.d("loi","loi");
                     return;
                 }
-                if(password.length()<6){
+                if(password1.length()<6){
                     mPassword.setError("Mật khẩu phải có 6 kí tự");
                     Log.d("loi","loi");
                     return;
                 }
 
-                fAuth.signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                fAuth.signInWithEmailAndPassword(email1,password1).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
                     @Override
                     public void onComplete(@NonNull Task<AuthResult> task) {
                         if(task.isSuccessful()){
