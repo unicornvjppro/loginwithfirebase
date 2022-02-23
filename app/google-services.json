@@ -1,6 +1,7 @@
 {
   "project_info": {
     "project_number": "63512303830",
+    "firebase_url": "https://login-36e7d-default-rtdb.firebaseio.com",
     "project_id": "login-36e7d",
     "storage_bucket": "login-36e7d.appspot.com"
   },
@@ -13,6 +14,14 @@
         }
       },
       "oauth_client": [
+        {
+          "client_id": "63512303830-tl28c651qoo8iebr5fjs9cvm7mlfqjgq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.logintest2",
+            "certificate_hash": "365cc387bcf01c2c6cabf2acfe66a08f27f26114"
+          }
+        },
         {
           "client_id": "63512303830-l2e5rtnqjvted1ch4m59arpt39h9uv9o.apps.googleusercontent.com",
           "client_type": 3
