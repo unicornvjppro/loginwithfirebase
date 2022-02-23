@@ -6,6 +6,17 @@
     android:layout_height="match_parent">
 
     <TextView
+        android:id="@+id/txtpro3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="84dp"
+        android:text="Hoặc "
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.482"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
@@ -19,7 +30,7 @@
     <Button
         android:id="@+id/button"
         android:layout_width="152dp"
-        android:layout_height="45dp"
+        android:layout_height="48dp"
         android:layout_marginTop="50dp"
         android:text="Đăng nhập"
         app:layout_constraintBottom_toBottomOf="parent"
@@ -75,6 +86,17 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toEndOf="@+id/txtpro2"
         app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <TextView
+        android:id="@+id/txtpro4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Đăng nhập với số điện thoại"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtpro3" />
+
     <ProgressBar
         android:id="@+id/pgb1"
         style="?android:attr/progressBarStyle"
