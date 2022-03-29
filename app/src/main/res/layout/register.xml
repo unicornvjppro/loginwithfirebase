@@ -4,79 +4,200 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".register_class">
+    tools:context=".register_class"
+    android:background="@drawable/bg_image">
 
     <TextView
         android:id="@+id/txt1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="20dp"
+        android:fontFamily="@font/lobster"
         android:text="Đăng kí!"
+        android:textSize="30dp"
         app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.165" />
+        app:layout_constraintVertical_bias="0.043" />
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toTopOf="@id/btn1"
+        app:layout_constraintTop_toBottomOf="@id/txt1"
+        android:padding="15dp">
+
+    <TextView
+        android:id="@+id/tvname"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tên người dùng"
+        android:layout_margin="10dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/name"
+        app:layout_constraintTop_toTopOf="@id/layout" />
 
     <EditText
-        android:id="@+id/edt1"
-        android:layout_width="325dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="25dp"
-        android:ems="10"
-        android:hint="Tên"
-        android:inputType="textPersonName"
+        android:id="@+id/name"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/background"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/black"
+        android:hint=""
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/txt1" />
+        app:layout_constraintTop_toBottomOf="@+id/tvname" />
+
+    <TextView
+        android:id="@+id/tvage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Năm sinh"
+        android:layout_margin="10dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/date"
+        app:layout_constraintTop_toBottomOf="@id/name" />
 
     <EditText
-        android:id="@+id/edt2"
-        android:layout_width="325dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="Tuổi"
-        android:inputType="textPersonName"
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/background"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/black"
+        android:hint="dd/mm/yyyy"
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="#A5A0A0"
+        android:textSize="20sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt1" />
+        app:layout_constraintTop_toBottomOf="@+id/tvage" />
+
+    <TextView
+        android:id="@+id/tvemail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Email"
+        android:layout_margin="10dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/email"
+        app:layout_constraintTop_toBottomOf="@id/date" />
+
+    <EditText
+        android:id="@+id/email"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:background="@drawable/background"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/black"
+        android:hint=""
+        android:inputType="text"
+        android:maxLines="1"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.526"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvemail" />
+
+    <TextView
+        android:id="@+id/tvpass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Mật khẩu"
+        android:layout_margin="10dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@id/email" />
+
+    <EditText
+        android:id="@+id/password"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="273dp"
+        android:background="@drawable/background"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/black"
+        android:hint=""
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvpass" />
+
+    <TextView
+        android:id="@+id/tvrepass"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nhập lại mật khẩu"
+        android:layout_margin="10dp"
+        android:textColor="@color/white"
+        android:textSize="20sp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintBottom_toTopOf="@+id/password"
+        app:layout_constraintTop_toBottomOf="@id/repass" />
+
+    <EditText
+        android:id="@+id/repass"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="10dp"
+        android:layout_marginTop="273dp"
+        android:background="@drawable/background"
+        android:drawablePadding="10dp"
+        android:drawableTint="@color/black"
+        android:hint=""
+        android:inputType="textPassword"
+        android:maxLines="1"
+        android:padding="20dp"
+        android:textColor="@color/black"
+        android:textColorHint="@color/black"
+        android:textSize="20sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvrepass" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
     <Button
         android:id="@+id/btn1"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginBottom="100dp"
-        android:text="Button"
+        android:layout_width="123dp"
+        android:layout_height="61dp"
+        android:text="Đăng ký"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.498"
-        app:layout_constraintStart_toStartOf="parent" />
-
-    <EditText
-        android:id="@+id/edt3"
-        android:layout_width="325dp"
-        android:layout_height="50dp"
-        android:layout_marginTop="40dp"
-        android:ems="10"
-        android:hint="Email"
-        android:inputType="textPersonName"
-        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt2" />
-
-    <EditText
-        android:id="@+id/edt4"
-        android:layout_width="325dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="50dp"
-        android:ems="10"
-        android:hint="Mật khẩu"
-        android:inputType="textPersonName"
-        android:password="true"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/edt3" />
+        app:layout_constraintTop_toBottomOf="@+id/layout" />
 
     <ProgressBar
         android:id="@+id/pgb1"
@@ -89,5 +210,7 @@
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
+
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

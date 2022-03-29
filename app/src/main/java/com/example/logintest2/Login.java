@@ -6,11 +6,15 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.EditText;
 import android.widget.ProgressBar;
+import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,9 +22,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.Objects;
 
 public class Login extends AppCompatActivity {
     EditText mEmail,mPassword;
@@ -37,20 +44,41 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.login);
 
-        mEmail=findViewById(R.id.txtmail);
-        mPassword=findViewById(R.id.txtpw);
+        mEmail=findViewById(R.id.username);
+        mPassword=findViewById(R.id.password);
         msignup=findViewById(R.id.txtpro);
         msignin=findViewById(R.id.button);
-        mLabel=findViewById(R.id.textView);
         pgbar=findViewById(R.id.pgb1);
         remeber=findViewById(R.id.checkBox);
         mloginphone=findViewById((R.id.txtpro4));
 
+
+        Log.d("TAG", "onCreate: ");
+        Intent intent1 = getIntent();
+        if (intent1.hasExtra("username")) {
+            String user = intent1.getStringExtra("username");
+            Log.d("TAG", "user: "+user);
+            mEmail.setText(user);
+            intent1.removeExtra("username");
+        } else {
+            mEmail.setText("");
+        }
+
+        if (intent1.hasExtra("pass")) {
+            String pass = intent1.getStringExtra("pass");
+            Log.d("TAG", "pass: "+pass);
+            mPassword.setText(pass);
+            intent1.removeExtra("pass");
+        } else {
+            mPassword.setText("");
+        }
+
+
         SharedPreferences preferences=getSharedPreferences("checkbox",MODE_PRIVATE);
         String checkbox=preferences.getString("remember","");
         if(checkbox.equals("true")){
-            Intent intent=new Intent(Login.this,MainActivity.class);
-            startActivity(intent);
+            Intent intent2=new Intent(Login.this,MainActivity.class);
+            startActivity(intent2);
         }
         else if(checkbox.equals("false")){
             Toast.makeText(this,"Bạn chưa đăng nhập",Toast.LENGTH_SHORT).show();
@@ -63,40 +91,52 @@ public class Login extends AppCompatActivity {
                 String password=mPassword.getText().toString().trim();
                 if(TextUtils.isEmpty(email)){
                     mEmail.setError("Vui lòng điền Email");
-                    Log.d("loi","loi");
-                    return;
                 }
-                if(TextUtils.isEmpty(password)){
+                else if(TextUtils.isEmpty(password)){
                     mPassword.setError("Vui lòng điền mật khẩu");
-                    Log.d("loi","loi");
-                    return;
                 }
-                if(password.length()<6){
+                else if(password.length()<6){
                     mPassword.setError("Mật khẩu phải có 6 kí tự");
-                    Log.d("loi","loi");
-                    return;
                 }
 
-                pgbar.setVisibility(View.VISIBLE);
-                fAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
-                    @Override
-                    public void onComplete(@NonNull Task<AuthResult> task) {
-                        if(task.isSuccessful()){
-                            Toast.makeText(Login.this,"Login thành công",Toast.LENGTH_SHORT).show();
-                            startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                else{
+                    pgbar.setVisibility(View.VISIBLE);
+                    FirebaseAuth.getInstance().signInWithEmailAndPassword(email,password).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
+                        @Override
+                        public void onComplete(@NonNull Task<AuthResult> task) {
+                            if(task.isSuccessful()){
+                                Toast.makeText(Login.this,"Login thành công",Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                                pgbar.setVisibility(View.GONE);
 
-                        }else{
-                            Toast.makeText(Login.this,"Lỗi"+task.getException().getMessage(),Toast.LENGTH_SHORT).show();
+                            }else{
+                                pgbar.setVisibility(View.GONE);
+//                                Toast.makeText(Login.this,"Lỗi "+task.getException().toString(),Toast.LENGTH_LONG).show();
+                            }
                         }
-                    }
-                });
+
+                    }).addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            if(Objects.equals(e.getMessage(), "The email address is badly formatted.")){
+                                Toast.makeText(Login.this,"Tài khoản không hợp lệ",Toast.LENGTH_LONG).show();
+                            }
+                            else if (Objects.equals(e.getMessage(), "The password is invalid or the user does not have a password.")){
+                                Toast.makeText(Login.this,"Mật khẩu không đúng",Toast.LENGTH_LONG).show();
+                            }
+                            else if (Objects.equals(e.getMessage(),"There is no user record corresponding to this identifier. The user may have been deleted.")){
+                                Toast.makeText(Login.this,"Tài khoản này không có trong hệ thống",Toast.LENGTH_LONG).show();
+                            }
+                        }
+                    });
+                }
             }
+
         });
         msignup.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getApplicationContext(),register_class.class));
-                pgbar.setVisibility(View.INVISIBLE);
             }
         });
 
@@ -128,5 +168,18 @@ public class Login extends AppCompatActivity {
             }
         });
 
+
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        Log.d("TAG", "onResume: ");
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        Log.d("TAG", "onDestroy: ");
     }
 }

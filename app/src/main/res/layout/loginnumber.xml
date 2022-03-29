@@ -9,9 +9,14 @@
 
     <com.hbb20.CountryCodePicker
         android:id="@+id/ccp"
-        android:layout_width="115dp"
-        android:layout_height="43dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:layout_marginStart="16dp"
+        app:ccp_countryAutoDetectionPref="LOCALE_NETWORK_SIM"
+        app:ccp_autoDetectLanguage="true"
+        app:ccp_countryPreference="VN"
+        app:ccp_defaultPhoneCode="84"
+        app:ccp_defaultLanguage="VIETNAMESE"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toStartOf="@+id/t1"
         app:layout_constraintHorizontal_bias="0.73"
