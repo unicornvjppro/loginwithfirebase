@@ -48,7 +48,7 @@ dependencies {
     implementation 'com.github.niwattep:material-slide-date-picker:v2.0.0'
 
     implementation 'com.hbb20:ccp:2.5.0'
-
+    implementation 'pl.droidsonroids.gif:android-gif-drawable:1.2.19'
 }
 
 apply plugin: 'com.google.gms.google-services'
