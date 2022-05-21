@@ -61,7 +61,7 @@ public class register_class extends AppCompatActivity implements SlideDatePicker
         pgbar=findViewById(R.id.pgb1);
 
         String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
-        mtuoi.setText(currentDate);
+//        mtuoi.setText(currentDate);
 
         mtuoi.setOnClickListener(new View.OnClickListener() {
             @Override

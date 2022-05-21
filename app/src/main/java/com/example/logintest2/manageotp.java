@@ -46,7 +46,7 @@ public class manageotp extends AppCompatActivity {
                 if(t2.getText().toString().isEmpty())
                     Toast.makeText(getApplicationContext(),"Blank Field can not be processed",Toast.LENGTH_LONG).show();
                 else if(t2.getText().toString().length()!=6)
-                    Toast.makeText(getApplicationContext(),"INvalid OTP",Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(),"Invalid OTP",Toast.LENGTH_LONG).show();
                 else
                 {
                     PhoneAuthCredential credential= PhoneAuthProvider.getCredential(otpid,t2.getText().toString());
