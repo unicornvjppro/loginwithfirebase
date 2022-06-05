@@ -16,11 +16,13 @@
         <entry key="..\:/Users/admin/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_dropdown_item.xml" value="0.23802083333333332" />
         <entry key="..\:/Users/admin/AppData/Local/Android/Sdk/platforms/android-31/data/res/layout/simple_spinner_item.xml" value="0.23802083333333332" />
         <entry key="..\:/javaproject/logintest2/app/src/main/res/drawable/rectangle.xml" value="0.183" />
+        <entry key="..\:/javaproject/logintest2/app/src/main/res/layout/activity_act2.xml" value="0.1" />
         <entry key="..\:/javaproject/logintest2/app/src/main/res/layout/activity_main.xml" value="0.12310030395136778" />
         <entry key="..\:/javaproject/logintest2/app/src/main/res/layout/layoutstart2.xml" value="0.25416666666666665" />
-        <entry key="..\:/javaproject/logintest2/app/src/main/res/layout/login.xml" value="0.42397914856646396" />
+        <entry key="..\:/javaproject/logintest2/app/src/main/res/layout/login.xml" value="0.176" />
         <entry key="..\:/javaproject/logintest2/app/src/main/res/layout/loginnumber.xml" value="0.21784420289855072" />
         <entry key="..\:/javaproject/logintest2/app/src/main/res/layout/otpcode.xml" value="0.21240942028985507" />
+        <entry key="..\:/javaproject/logintest2/app/src/main/res/layout/test.xml" value="0.25416666666666665" />
       </map>
     </option>
   </component>

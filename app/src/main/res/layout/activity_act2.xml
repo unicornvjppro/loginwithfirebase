@@ -4,9 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/img"
-    tools:context=".MainActivity">
-
+    tools:context=".act2">
 
     <TextView
         android:id="@+id/welc"
@@ -43,15 +41,18 @@
         app:layout_constraintTop_toBottomOf="@+id/name" />
 
     <Button
-        android:id="@+id/btnlogout"
+        android:id="@+id/logou"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
+        android:layout_marginTop="380dp"
+
         android:text="Log out"
         app:layout_constraintEnd_toEndOf="parent"
+
         app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/img2"
-        android:onClick="logout"
-        />
+        app:layout_constraintTop_toBottomOf="@+id/name" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
+
+<!--    android:onClick="logout"-->

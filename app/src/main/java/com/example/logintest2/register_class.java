@@ -51,7 +51,7 @@ public class register_class extends AppCompatActivity implements SlideDatePicker
         super.onCreate(savedInstanceState);
         setContentView(R.layout.register);
         mhoten=findViewById(R.id.name);
-        mtuoi=findViewById(R.id.date);
+//        mtuoi=findViewById(R.id.date);
         memail=findViewById(R.id.email);
         mpassword=findViewById(R.id.password);
         repass=findViewById(R.id.repass);
@@ -63,17 +63,17 @@ public class register_class extends AppCompatActivity implements SlideDatePicker
         String currentDate = new SimpleDateFormat("dd-MM-yyyy", Locale.getDefault()).format(new Date());
 //        mtuoi.setText(currentDate);
 
-        mtuoi.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Calendar endDate = Calendar.getInstance();
-                endDate.set(Calendar.YEAR, 2100);
-                SlideDatePickerDialog.Builder builder = new SlideDatePickerDialog.Builder();
-                builder.setEndDate(endDate);
-                SlideDatePickerDialog dialog = builder.build();
-                dialog.show(getSupportFragmentManager(), "Dialog");
-            }
-        });
+//        mtuoi.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Calendar endDate = Calendar.getInstance();
+//                endDate.set(Calendar.YEAR, 2100);
+//                SlideDatePickerDialog.Builder builder = new SlideDatePickerDialog.Builder();
+//                builder.setEndDate(endDate);
+//                SlideDatePickerDialog dialog = builder.build();
+//                dialog.show(getSupportFragmentManager(), "Dialog");
+//            }
+//        });
 
         btr.setOnClickListener(new View.OnClickListener() {
             @Override
